@@ -9,7 +9,10 @@ const app = express();
 //connect db
 connectDB();
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+    origin:'*'
+}));
 //middleware
 app.use(express.json());
 

@@ -6,7 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class EmployeeService {
 
+<<<<<<< HEAD
   apiUrl = 'https://fullstack-employee-crud.onrender.com/api/employees';
+=======
+  // apiUrl = 'http://localhost:5000/api/employees';
+private apiUrl = 'https://fullstack-employee-crud.onrender.com/api/employees';
+>>>>>>> 29f7c85b (fixed angular build and deployment issues)
   constructor(private http: HttpClient) {}
 
   // TOKEN HEADER
@@ -88,6 +93,10 @@ getProfile() {
 
   return this.http.get(
     'https://fullstack-employee-crud.onrender.com/api/employees/me',
+<<<<<<< HEAD
+=======
+    // 'http://localhost:5000/api/employees/me',
+>>>>>>> 29f7c85b (fixed angular build and deployment issues)
     {
       headers:{
         Authorization:`Bearer ${token}`
@@ -103,6 +112,10 @@ updateProfile(data:any){
 
   return this.http.put(
     'https://fullstack-employee-crud.onrender.com/api/employees/update-profile',
+<<<<<<< HEAD
+=======
+    // 'http://localhost:5000/api/employees/update-profile',
+>>>>>>> 29f7c85b (fixed angular build and deployment issues)
     data,
     {
       headers:{
