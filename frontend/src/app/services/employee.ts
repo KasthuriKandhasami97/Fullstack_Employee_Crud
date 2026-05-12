@@ -6,8 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class EmployeeService {
 
-  apiUrl = 'http://localhost:5000/api/employees';
-
+  apiUrl = 'https://fullstack-employee-crud.onrender.com/api/employees';
   constructor(private http: HttpClient) {}
 
   // TOKEN HEADER
@@ -88,7 +87,7 @@ getProfile() {
   const token = localStorage.getItem('token');
 
   return this.http.get(
-    'http://localhost:5000/api/employees/me',
+    'https://fullstack-employee-crud.onrender.com/api/employees/me',
     {
       headers:{
         Authorization:`Bearer ${token}`
@@ -103,7 +102,7 @@ updateProfile(data:any){
   const token = localStorage.getItem('token');
 
   return this.http.put(
-    'http://localhost:5000/api/employees/update-profile',
+    'https://fullstack-employee-crud.onrender.com/api/employees/update-profile',
     data,
     {
       headers:{
