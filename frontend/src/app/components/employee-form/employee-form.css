@@ -1,0 +1,49 @@
+/* CARD */
+.employee-card{
+  overflow: hidden;
+}
+
+/* INPUTS */
+.form-control,
+.form-select{
+  min-height: 52px;
+  font-size: 15px;
+}
+
+/* MOBILE */
+@media (max-width: 576px){
+
+  .employee-card{
+    padding: 18px !important;
+    border-radius: 18px !important;
+  }
+
+  .form-control,
+  .form-select{
+    min-height: 48px;
+    font-size: 14px;
+  }
+
+  .btn{
+    font-size: 15px;
+  }
+
+}
+
+/* TABLET */
+@media (min-width: 577px) and (max-width: 991px){
+
+  .employee-card{
+    padding: 25px !important;
+  }
+
+}
+
+/* LARGE SCREEN */
+@media (min-width: 1200px){
+
+  .employee-card{
+    max-width: 100%;
+  }
+
+}

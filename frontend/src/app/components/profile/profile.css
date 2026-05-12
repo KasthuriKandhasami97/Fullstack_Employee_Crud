@@ -1,0 +1,56 @@
+body{
+  background:#f4f7fc;
+}
+
+.profile-card{
+  border-radius:20px;
+  overflow:hidden;
+  background:#ffffff;
+}
+
+.profile-icon{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#4f46e5,#06b6d4);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:45px;
+}
+
+.form-control{
+  height:50px;
+  border-radius:10px;
+  font-size:15px;
+}
+
+.input-group-text{
+  border-radius:10px 0 0 10px;
+  background:#f1f5f9;
+}
+
+.btn-primary{
+  height:50px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(135deg,#4f46e5,#06b6d4);
+  transition:0.3s;
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+}
+
+.btn-outline-secondary{
+  border-radius:0 10px 10px 0;
+}
+
+@media(max-width:768px){
+
+  .card-body{
+    padding:25px !important;
+  }
+
+}

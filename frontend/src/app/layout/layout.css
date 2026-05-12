@@ -1,0 +1,162 @@
+
+:root {
+  --navbar-height: 60px;
+}
+/* FULL PAGE HEIGHT */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* BODY TAKES REMAINING SPACE */
+.layout-body {
+  display: flex;
+  flex: 1;
+margin-top: 60px;
+} 
+
+.sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #4facfe, #00f2fe);
+  height: calc(100vh - 60px);
+  position: fixed;
+  top: 60px; 
+  left: 0;
+}
+/* MAIN CONTENT */
+.main-content {
+  margin-left: 220px; 
+  width: 100%;
+}
+.main-content.collapsed {
+  margin-left: 70px;
+}
+/* FOOTER */
+.footer {
+  background: #fff;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+}
+
+
+.sidebar .nav-link:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.sidebar .active {
+  background: white;
+  color: #4facfe;
+}
+
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+
+
+
+.sidebar .nav-link {
+  color: rgb(150, 16, 16);
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+.dropdown-toggle::after {
+  display: none; }
+
+.responsive-title {
+  font-size: 24px;
+}
+.main {
+  margin-left: 220px;
+  padding: 20px;
+}
+
+/* Fix navbar layout */
+.navbar {
+  height: var(--navbar-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* Title responsive */
+.responsive-title {
+  font-size: 22px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Mobile fixes */
+@media (max-width: 768px) {
+
+  .responsive-title {
+    font-size: 16px;
+    max-width: 140px; /* prevent overflow */
+  }
+
+  .navbar button {
+    padding: 5px 8px;
+  }
+
+  .dropdown button {
+    padding: 4px 6px;
+  }
+
+  .dropdown i {
+    font-size: 18px;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    left: -220px;
+    width: 220px;
+    height: calc(100vh - 60px);
+    transition: 0.3s;
+    z-index: 1000;
+  }
+  .sidebar.show{
+    left: 0;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .layout-body {
+    flex-direction: column;
+    margin-top: 60px;
+  }
+
+  .footer {
+    font-size: 12px;
+  }
+   .mobile-title {
+    display: inline;
+  }
+  .desktop-title {
+    display: none;
+  }
+
+}
+@media (min-width: 769px) {
+  .mobile-title {
+    display: none;
+  }
+  .desktop-title {
+    display: inline;
+  }
+}

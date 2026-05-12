@@ -1,0 +1,248 @@
+<div class="container-fluid px-2 px-md-3">
+ <div class="card p-4 shadow-sm">
+<form
+  #empForm="ngForm"
+  (ngSubmit)="submitForm(empForm)"
+  class="card p-4 shadow-sm mb-4"
+>
+
+  <div class="row g-3">
+
+    <!-- NAME -->
+    <div class="col-md-6">
+
+      <label class="form-label">
+        Name
+      </label>
+
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        [(ngModel)]="employee.name"
+        #name="ngModel"
+        required
+      >
+
+      <div
+        class="text-danger mt-1"
+        *ngIf="
+          name.invalid &&
+          name.touched
+        "
+      >
+
+        Name is required
+
+      </div>
+
+    </div>
+
+    <!-- EMAIL -->
+<div class="col-md-6">
+
+  <label class="form-label">
+    Email
+  </label>
+
+  <input
+    type="text"
+    class="form-control"
+    name="email"
+    [(ngModel)]="employee.email"
+    #email="ngModel"
+    required
+    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+  >
+
+  <!-- REQUIRED -->
+  <div
+    class="text-danger mt-1"
+    *ngIf="
+      email.errors?.['required'] &&
+      email.touched
+    "
+  >
+
+    Email is required
+
+  </div>
+
+  <!-- INVALID EMAIL -->
+  <div
+    class="text-danger mt-1"
+    *ngIf="
+      email.errors?.['pattern'] &&
+      email.touched
+    "
+  >
+
+    Enter valid email format
+
+  </div>
+
+</div>
+
+    <!-- POSITION -->
+    <div class="col-md-6">
+
+      <label class="form-label">
+        Position
+      </label>
+
+      <input
+        type="text"
+        class="form-control"
+        name="position"
+        [(ngModel)]="employee.position"
+        #position="ngModel"
+        required
+      >
+
+      <div
+        class="text-danger mt-1"
+        *ngIf="
+          position.invalid &&
+          position.touched
+        "
+      >
+
+        Position is required
+
+      </div>
+
+    </div>
+
+    <!-- DEPARTMENT -->
+    <div class="col-md-6">
+
+      <label class="form-label">
+        Department
+      </label>
+
+      <input
+        type="text"
+        class="form-control"
+        name="department"
+        [(ngModel)]="employee.department"
+        #department="ngModel"
+        required
+      >
+
+      <div
+        class="text-danger mt-1"
+        *ngIf="
+          department.invalid &&
+          department.touched
+        "
+      >
+
+        Department is required
+
+      </div>
+
+    </div>
+
+    <!-- SALARY -->
+    <div class="col-md-6">
+
+      <label class="form-label">
+        Salary
+      </label>
+
+      <input
+        type="number"
+        class="form-control"
+        name="salary"
+        [(ngModel)]="employee.salary"
+        #salary="ngModel"
+        required
+      >
+
+      <div
+        class="text-danger mt-1"
+        *ngIf="
+          salary.invalid &&
+          salary.touched
+        "
+      >
+
+        Salary is required
+
+      </div>
+
+    </div>
+
+    <!-- STATUS -->
+<!-- STATUS -->
+<div class="col-md-6">
+
+  <label class="form-label">
+    Status
+  </label>
+
+  <select
+    class="form-select"
+    name="status"
+    [(ngModel)]="employee.status"
+    #status="ngModel"
+    required
+  >
+
+    <option value="">
+      Select Status
+    </option>
+
+    <option value="Active">
+      Active
+    </option>
+
+    <option value="Inactive">
+      Inactive
+    </option>
+
+  </select>
+
+  <div
+    class="text-danger mt-1"
+    *ngIf="
+      status.invalid &&
+      status.touched
+    "
+  >
+
+    Status is required
+
+  </div>
+
+</div>
+
+  </div>
+
+  <!-- BUTTON -->
+  <div class="mt-4">
+
+<button
+  class="btn btn-primary"
+  type="submit"
+  [disabled]="empForm.invalid || loading"
+>
+
+      <span
+        *ngIf="loading"
+        class="spinner-border spinner-border-sm me-2"
+      ></span>
+
+      {{
+        employee._id
+        ? 'Update Employee'
+        : 'Add Employee'
+      }}
+
+    </button>
+
+  </div>
+
+</form>
+</div>
+</div>

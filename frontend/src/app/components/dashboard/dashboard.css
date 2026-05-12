@@ -1,0 +1,111 @@
+/* DASHBOARD CARDS */
+
+.dashboard-card{
+
+  height:180px;
+
+  background:#ffffff;
+
+  border-radius:20px;
+
+  padding:25px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  box-shadow:0 4px 14px rgba(0,0,0,0.08);
+
+  transition:0.3s;
+
+}
+
+.dashboard-card:hover{
+
+  transform:translateY(-5px);
+
+}
+
+/* CARD CONTENT */
+
+.card-content{
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+}
+
+/* TITLE */
+
+.card-title{
+
+  color:#6b7280;
+
+  font-size:16px;
+
+  margin-bottom:10px;
+
+  font-weight:500;
+
+}
+
+/* NUMBER */
+
+.card-count{
+
+  font-size:38px;
+
+  font-weight:700;
+
+  margin:0;
+
+}
+
+/* ICON */
+
+.card-icon{
+
+  font-size:55px;
+
+  opacity:0.9;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .dashboard-card{
+
+    height:160px;
+
+    padding:20px;
+
+  }
+
+  .card-count{
+
+    font-size:30px;
+
+  }
+
+  .card-icon{
+
+    font-size:45px;
+
+  }
+  .card-text{
+    font-size: 13px;
+  }
+
+}
+@media (min-width:992px){
+  .card-text{
+    font-size: 13px;
+  }
+}
