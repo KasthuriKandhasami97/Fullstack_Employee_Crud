@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  api = 'http://localhost:5000/api/auth';
+  api = 'https://fullstack-employee-crud.onrender.com/api/auth';
 
   constructor(private http: HttpClient) {}
 
 login(data: any) {
   return this.http.post<any>(
-    'http://localhost:5000/api/auth/login',
+    'https://fullstack-employee-crud.onrender.com/api/auth/login',
     data
   );
 
