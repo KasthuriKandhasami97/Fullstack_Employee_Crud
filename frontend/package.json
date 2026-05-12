@@ -4,9 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "node ./node_modules/@angular/cli/bin/ng build --configuration production",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "build": "node ./node_modules/@angular/cli/bin/ng build --configuration production",    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "postinstall": "node ./node_modules/@angular/cli/bin/ng --version"
   },
   "private": true,
   "packageManager": "npm@10.8.2",
