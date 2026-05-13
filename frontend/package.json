@@ -1,13 +1,14 @@
 {
   "name": "frontend",
   "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-  "build": "ng build --configuration production",
-    "test": "ng test",
-    "postinstall": "node ./node_modules/@angular/cli/bin/ng --version"
-  },
+
+
+"scripts": {
+  "start": "node ./node_modules/@angular/cli/bin/ng serve",
+  "build": "node ./node_modules/@angular/cli/bin/ng build --configuration production",
+  "test": "node ./node_modules/@angular/cli/bin/ng test"
+},
+
   "private": true,
   "packageManager": "npm@10.8.2",
   "dependencies": {
