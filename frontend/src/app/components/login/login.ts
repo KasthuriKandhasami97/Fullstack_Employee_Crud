@@ -15,17 +15,37 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class Login {
     loginData = { email: '', password: '' };
+    showPassword = false; 
+    loading = false;  
 
-  constructor(private auth: AuthService,
+constructor(private auth: AuthService,
     private router: Router,
     private toastr: ToastrService) {}
 
- login() {
+
+
+login() {
+
+  // VALIDATION
+  if (
+    !this.loginData.email ||
+    !this.loginData.password
+  ) {
+
+    this.toastr.error(
+      'All fields are required'
+    );
+
+    return;
+
+  }
+
+  this.loading = true;
 
   this.auth.login(this.loginData)
     .subscribe({
 
-      next: (res) => {
+      next: (res: any) => {
 
         // SAVE TOKEN
         localStorage.setItem(
@@ -39,6 +59,11 @@ export class Login {
           JSON.stringify(res.user)
         );
 
+        // SUCCESS MESSAGE
+        this.toastr.success(
+          'Login Successful'
+        );
+
         // AUTO LOGOUT AFTER 1 HOUR
         setTimeout(() => {
 
@@ -46,26 +71,40 @@ export class Login {
 
           this.router.navigate(['/login']);
 
-          this.toastr.info('Session Expired. Login Again');
+          this.toastr.info(
+            'Session Expired. Login Again'
+          );
 
         }, 3600000);
 
+        this.loading = false;
+
         // ROLE CHECK
-        if (res.user.role === 'admin') {
+        setTimeout(() => {
 
-          this.router.navigate(['/dashboard']);
+          if (res.user.role === 'admin') {
 
-        } else {
+            this.router.navigate(['/dashboard']);
 
-          this.router.navigate(['/profile']);
+          } else {
 
-        }
+            this.router.navigate(['/profile']);
+
+          }
+
+        }, 1000);
 
       },
 
-      error: () => {
+      error: (err) => {
 
-        this.toastr.error('Login Failed');
+        console.log(err);
+
+        this.toastr.error(
+          err.error.message || 'Login Failed'
+        );
+
+        this.loading = false;
 
       }
 

@@ -1,6 +1,147 @@
-<div class="container mt-5">
-  <h2>Login</h2>
-  <input [(ngModel)]="loginData.email" placeholder="Email" class="form-control mb-2">
-  <input [(ngModel)]="loginData.password" type="password" placeholder="Password" class="form-control mb-2">
-  <button (click)="login()" class="btn btn-primary">Login</button>
+
+<div class="login-wrapper">
+
+  <div class="container">
+
+    <div class="row justify-content-center align-items-center min-vh-100">
+
+      <div class="col-lg-4 col-md-6 col-sm-10">
+
+        <div class="card login-card border-0 shadow-lg">
+
+          <div class="card-body p-4 p-md-5">
+
+            <!-- LOGO -->
+            <div class="text-center mb-4">
+
+              <div class="login-icon mx-auto mb-3">
+
+                <i class="bi bi-person-circle"></i>
+
+              </div>
+
+              <h2 class="fw-bold">
+                Welcome Back
+              </h2>
+
+              <p class="text-muted mb-0">
+                Login to your account
+              </p>
+
+            </div>
+
+            <!-- FORM -->
+            <form #loginForm="ngForm">
+
+              <!-- EMAIL -->
+              <div class="mb-3">
+
+                <label class="form-label fw-semibold">
+                  Email Address
+                </label>
+
+                <div class="input-group">
+
+                  <span class="input-group-text">
+                    <i class="bi bi-envelope-fill"></i>
+                  </span>
+
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Enter your email"
+                    [(ngModel)]="loginData.email"
+                    name="email"
+                    required
+                    email
+                    #email="ngModel">
+
+                </div>
+
+                <small
+                  class="text-danger"
+                  *ngIf="email.invalid && email.touched">
+
+                  Enter valid email
+
+                </small>
+
+              </div>
+
+              <!-- PASSWORD -->
+              <div class="mb-4">
+
+                <label class="form-label fw-semibold">
+                  Password
+                </label>
+
+                <div class="input-group">
+
+                  <span class="input-group-text">
+                    <i class="bi bi-lock-fill"></i>
+                  </span>
+
+                  <input
+                    [type]="showPassword ? 'text' : 'password'"
+                    class="form-control"
+                    placeholder="Enter your password"
+                    [(ngModel)]="loginData.password"
+                    name="password"
+                    required
+                    minlength="5"
+                    #password="ngModel">
+
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary"
+                    (click)="showPassword = !showPassword">
+
+                    <i
+                      class="bi"
+                      [ngClass]="showPassword ? 'bi-eye-slash-fill' : 'bi-eye-fill'">
+                    </i>
+
+                  </button>
+
+                </div>
+
+                <small
+                  class="text-danger"
+                  *ngIf="password.invalid && password.touched">
+
+                  Password minimum 5 characters
+
+                </small>
+
+              </div>
+
+              <!-- LOGIN BUTTON -->
+              <button
+                type="button"
+                class="btn btn-primary w-100 py-2 fw-semibold"
+                [disabled]="loginForm.invalid || loading"
+                (click)="login()">
+
+                <span
+                  *ngIf="loading"
+                  class="spinner-border spinner-border-sm me-2">
+                </span>
+
+                {{ loading ? 'Logging in...' : 'Login' }}
+
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
+
